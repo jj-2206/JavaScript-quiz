@@ -3,7 +3,7 @@
 ### 1-1
 
 ```
-admin과 name이라는 변수를 선언하세요.
+1.admin과 name이라는 변수를 선언하세요.
 2.name에 값으로 "John"을 할당해 보세요.
 3.name의 값을 admin에 복사해 보세요.
 4.admin의 값을 console에 출력해보세요.

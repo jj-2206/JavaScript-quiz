@@ -1,3 +1,5 @@
+// 변수명 겹치지 않게 임의로 작성
+
 // 1-1
 let admin;
 let hisname;

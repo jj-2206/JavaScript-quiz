@@ -1,24 +1,24 @@
-// // 4-1
-// function min(a, b) {
-//   if (a > b) {
-//     return b;
-//   } else if (a < b) {
-//     return a;
-//   } else return a;
-// }
-// // 크거나 작거나 같거나지만, else로 끝내도 무방하다. (둘 중 하나의 값이 되기 때문에)
-// function min(a, b) {
-//   if (a > b) {
-//     return b;
-//   } else return a;
-// }
+// 4-1
+function min(a, b) {
+  if (a > b) {
+    return b;
+  } else if (a < b) {
+    return a;
+  } else return a;
+}
+// 크거나 작거나 같거나지만, else로 끝내도 무방하다. (둘 중 하나의 값이 되기 때문에)
+function min(a, b) {
+  if (a > b) {
+    return b;
+  } else return a;
+}
 
-// // 4-2
-// const min = (a, b) => {
-//   if (a > b) {
-//     return b;
-//   } else return a;
-// };
+// 4-2
+const min = (a, b) => {
+  if (a > b) {
+    return b;
+  } else return a;
+};
 
 /*
 함수 선언식

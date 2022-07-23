@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz 7</title>
+    <style>
+      .some-div {
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input id="input" type="text" placeholder="값을 입력하고 enter" />
+      <div>div내 text가 변경됩니다</div>
+    </form>
+    <section id="target"></section>
+  </body>
+  <script>
+    // 7-1
+    /*
+     const input = document.querySelector('#input');
+     input.addEventListener('keydown', (e) => {
+       // console.log(e.key);
+       if (e.key === 'Enter') {
+         console.log(e.target.value);
+       }
+     });
+     */
+    // 7-2
+    /*
+     const input = document.querySelector('#input');
+     input.addEventListener('keydown', (e) => {
+       if (e.key === 'Enter') {
+         const div = document.querySelector('div');
+         div.innerText = e.target.value;
+       }
+     });
+     */
+    // 7-3
+    /*
+     const form = document.querySelector('form');
+     const input = document.querySelector('#input');
+
+     form.addEventListener('submit', (e) => {
+       e.preventDefault();
+       // 새로고침 방지!
+       console.log('submit이벤트 발생!');
+     });
+
+     input.addEventListener('keydown', (e) => {
+       if (e.key === 'Enter') {
+         const div = document.querySelector('div');
+         div.innerText = e.target.value;
+       }
+     });
+     */
+    // 7-4
+    /*
+    const form = document.querySelector('form');
+    const input = document.querySelector('#input');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const div = document.querySelector('div');
+      div.innerText = input.value;
+    });
+    */
+    // 7-5
+    /*
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // 새로고침 대신
+      input.value = '';
+      // 공백이 없어야한다. 빈문자열!
+      // 만약에 공백' '을 넣으면 공백이 input에 남아있게 됨
+      // placeholder값이 보이지 않음
+    });
+    */
+
+    // 7-6
+    /*
+    const form = document.querySelector('form');
+    const target = document.querySelector('#target');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // 새로고침 대신
+      input.value = '';
+      const newDiv = document.createElement('div');
+      target.appendChild(newDiv);
+    });
+    */
+    // 7-7
+    /*
+    const input = document.querySelector('#input');
+    const form = document.querySelector('form');
+    const target = document.querySelector('#target');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // 새로고침 대신
+      const newDiv = document.createElement('div');
+      newDiv.className = 'some-div';
+      newDiv.style.backgroundColor = input.value;
+      input.value = '';
+      target.appendChild(newDiv);
+    });
+    */
+    // 7-8-9
+    const input = document.querySelector('#input');
+    const form = document.querySelector('form');
+    const target = document.querySelector('#target');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // 새로고침 대신
+      const newDiv = document.createElement('div');
+      newDiv.className = 'some-div';
+      newDiv.style.backgroundColor = input.value;
+      input.value = '';
+      target.appendChild(newDiv);
+      // newDiv.addEventListener('click', (e) => {
+      //   newDiv.parentElement.removeChild(newDiv);
+      //   console.log(e.target, e.currentTarget);
+      // });
+    });
+    target.addEventListener('click', (e) => {
+      console.log('target:', e.target, 'currentTarget:', e.currentTarget);
+      e.target.remove();
+    });
+  </script>
+</html>

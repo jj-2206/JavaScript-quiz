@@ -52,3 +52,15 @@ console.log(undefined == null);
 console.log(undefined === null);
 console.log(null == '\n0\n');
 console.log(null === +'\n0\n');
+
+// miniquiz
+// console.log(obj.a.b.c())로 Hello World 콘솔에 출력하기
+const obj = {
+  a: {
+    b: {
+      c: () => {
+        console.log('Hello World');
+      },
+    },
+  },
+};

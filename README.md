@@ -115,42 +115,114 @@ lineCount를 매개변수로 받는 함수로 수정해보세요!
 
 ### 5-2
 
-다음과 같이 동작하도록 findAge 함수를 구현하세요.
+```
+다음 코드를 [1, 5, 2, 3] 배열을 출력하는 코드로 바꾸어보세요
+```
 
 ```js
-const arr = [
-  {
-    name: 'kim',
-    age: 10,
-  },
-  {
-    name: 'park',
-    age: 15,
-  },
-  {
-    name: 'lee',
-    age: 12,
-  },
-  {
-    name: 'choi',
-    age: 13,
-  },
-  {
-    name: 'jin',
-    age: 20,
-  },
-  {
-    name: 'woo',
-    age: 30,
-  },
-];
-// arr.find(findAge('jin')).age; // 20;
-// arr.find(findAge('woo')).age; // 30;
+const original = [1, 5, 2, 3];
+const mapFunction = (item, index) => {
+  const obj = { item, index };
+  console.log(obj);
+  return undefined;
+};
+const a = original.map(mapFunction);
+console.log(a);
 ```
 
 ### 5-3
 
+```
+다음 코드를 [2, 10, 4, 6] 배열을 출력하는 코드로 바꾸어보세요.
+```
+
+```js
+const original = [1, 5, 2, 3];
+const mapFunction = (item, index) => {
+  const obj = { item, index };
+  console.log(obj);
+  return undefined;
+};
+const a = original.map(mapFunction);
+console.log(a);
+```
+
+### 5-4
+
+```
+다음 코드를 [1, 5, 2, 3] 배열을 출력하는 코드로 바꾸어보세요.
+```
+
+```js
+const original = [{ a: 1 }, { a: 5 }, { a: 2 }, { a: 3 }];
+const mapFunction = (item, index) => {
+  const obj = { item, index };
+  console.log(obj);
+  return undefined;
+};
+const a = original.map(mapFunction);
+console.log(a);
+```
+
+### 5-5
+
+```
+다음 코드를 [2, 10, 4, 6] 배열을 출력하는 코드로 바꾸어보세요.
+```
+
+```js
+const original = [{ a: 1 }, { a: 5 }, { a: 2 }, { a: 3 }];
+const mapFunction = (item, index) => {
+  const obj = { item, index };
+  console.log(obj);
+  return undefined;
+};
+const a = original.map(mapFunction);
+console.log(a);
+```
+
+### 5-6
+
+```
+다음 코드를 [{ a: 2 }, { a: 10 }, { a: 4 }, { a: 6 }]
+배열을 출력하는 코드로 바꾸어보세요.
+주의) 기존 original 배열이 가진 값이 바뀌어선 안됩니다.
+```
+
+```js
+const original = [{ a: 1 }, { a: 5 }, { a: 2 }, { a: 3 }];
+const mapFunction = (item, index) => {
+  const obj = { item, index };
+  console.log(obj);
+  return undefined;
+};
+const a = original.map(mapFunction);
+console.log(a);
+```
+
+### 5-7
+
+```
+다음 코드를 { a: 5 } 객체를 출력하는 코드로 바꾸어보세요.
+주의) 기존 original 배열이 가진 값이 바뀌어선 안됩니다.
+```
+
+```js
+const original = [{ a: 1 }, { a: 5 }, { a: 2 }, { a: 3 }];
+const findFunction = (item, index) => {
+  const obj = { item, index };
+  console.log(obj);
+  return false;
+};
+const a = original.find(findFunction);
+console.log(a);
+```
+
+### 5-8
+
+```
 다음과 같이 동작하도록 findAge 함수를 구현하세요.
+```
 
 ```js
 const arr = [
@@ -179,13 +251,15 @@ const arr = [
     age: 30,
   },
 ];
-// findAge(' jIN'); // 20;
-// findAge(' wOO '); // 30;
+findAge(' jIN'); // 20;
+findAge(' wOO '); // 30;
 ```
 
-### 5-4
+### 5-9
 
+```
 다음과 같이 동작하도록 findAge 함수를 구현하세요.
+```
 
 ```js
 const arr = [
@@ -214,15 +288,14 @@ const arr = [
     age: 30,
   },
 ];
-// findAge(' jIN'); // [20];
-// findAge(' wOO '); // [50, 30, 20];
+findAge(' jIN'); // [20];
+findAge(' wOO '); // [50, 30, 20];
 ```
 
-### 5-5
+### 5-10
 
 ```
-객체가 들어있는 배열을 인자로 받아,
-객체를 반환하는 toObject 함수 구현하기
+다음과 같이 동작하도록 findAge 함수를 구현하세요.
 ```
 
 ```js
@@ -252,6 +325,37 @@ const arr = [
     age: 30,
   },
 ];
+arr.find(findAge('jin')).age; // 20
+arr.find(findAge('woo')).age; // 30
+```
+
+### 5-11
+
+```
+객체가 들어있는 배열을 인자로 받아
+객체를 반환하는 toObject 함수 구현하기
+```
+
+```js
+const arr = [{
+name: 'kim',
+age: 10,
+}, {
+name: 'park',
+age: 15,
+}, {
+name: 'lee',
+age: 12,
+}, {
+name: 'choi',
+age: 13,
+}, {
+name: 'jin',
+age: 20,
+}, {
+name: 'woo',
+age: 30,
+}];
 console.log(toObject(arr));
 /*
 {
@@ -261,8 +365,7 @@ lee: 12,
 choi: 13,
 jin: 20,
 woo: 30,
-} 
-*/
+}
 ```
 
 ### 6-1

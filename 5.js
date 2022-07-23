@@ -132,8 +132,25 @@ const findAge = (name) => {
   const trimmedName = name.trim().toLowerCase();
   const foundAge = arr
     .filter((item) => trimmedName === item.name)
+    /*
+    (3) [{…}, {…}, {…}]
+      0: {name: 'woo', age: 50}
+      1: {name: 'woo', age: 20}
+      2: {name: 'woo', age: 30}
+      length: 3
+      [[Prototype]]: Array(0)
+    */
     .map(({ age }) => age)
+    /*
+    (3) [50, 20, 30]
+      0: 50
+      1: 20
+      2: 30
+      length: 3
+      [[Prototype]]: Array(0)
+    */
     .sort((a, b) => b - a);
+
   return foundAge;
 };
 console.log(findAge(' WoO '));

@@ -1,0 +1,137 @@
+<html>
+  <body>
+    <input type="number" />
+    <button id="start-button">시작</button>
+    <button id="finish-button">끝</button>
+    <div></div>
+    <!-- <button id="button">Click ME!</button> -->
+  </body>
+  <script>
+    /* 8-1 해설 코드
+    const buttonEl = document.querySelector('button');
+    const inputEl = document.querySelector('input');
+    function consoleLog() {
+      console.log(inputEl.value);
+    } // setTimeout의 인자의 갯수는 2개, (함수, number)/ return값은 number
+    buttonEl.addEventListener('click', () => {
+      window.setTimeout(consoleLog, 3000);
+      // window.setTimeout(()=>console.log(inputEl.value), 3000)
+    });
+    // 8-1 제출 코드
+    const input = document.querySelector('input');
+    const btn = document.querySelector('#button');
+    btn.addEventListener('click', (e) => {
+      const timer = setTimeout(function () {
+        console.log(input.value);
+      }, 3000);
+    });
+    // 8-2 제출 코드
+    const inputEl = document.querySelector('input');
+    const btn = document.querySelector('#button');
+    btn.addEventListener('click', (e) => {
+      const timer = setInterval(function () {
+        console.log(inputEl.value);
+      }, 1000);
+    });
+    */
+    /* 8-3 의도와 다르게 작성된 코드
+    const [startBtn, endBtn] = document.querySelectorAll('button');
+    const inputEl = document.querySelector('input');
+    let timerId;
+    function consoleLog() {
+      console.log(inputEl.value);
+    }
+    startBtn.addEventListener('click', () => {
+      timerId = window.setInterval(consoleLog, 1000);
+    });
+    endBtn.addEventListener('click', () => {
+      clearTimeout(timerId);
+    }); 
+    // 이렇게 작성하면 하나의 setInterval만 중지시키는 모양이 되어서
+    // 시작을 여러 번 클릭하면 중지 기능이 작동되지 않는다.
+
+    // 8-3 해설 코드1 (제출한 코드와 같은 방식!)
+    function consoleLog() {
+      console.log(inputEl.value);
+    }
+    startBtn.addEventListener('click', () => {
+      const timerId = window.setInterval(consoleLog, 1000);
+      endBtn.addEventListener('click', () => {
+        clearTimeout(timerId);
+      });
+    });
+
+    // 해설 코드2 Array 내장 함수를 쓸 수도 있다! push, forEach
+    let timerIds = [];
+    function consoleLog() {
+      console.log(inputEl.value);
+    }
+    startBtn.addEventListener('click', () => {
+      const newTimerId = window.setInterval(consoleLog, 1000);
+      timerIds.push(newTimerId);
+    });
+    endBtn.addEventListener('click', () => {
+      timerIds.forEach((item) => {
+        clearTimeout(item);
+        console.log(`timerId ${item} 중지!!`); 
+      }); // 각각의 timer들을 끄는 코드
+      timerIds = [];
+    });
+
+    // 8-3 제출 코드
+    const inputEl = document.querySelector('input');
+    const buttonStart = document.querySelector('#start-button');
+    const buttonFinish = document.querySelector('#finish-button');
+    buttonStart.addEventListener('click', (e) => {
+      const timer = setInterval(function () {
+        console.log(inputEl.value);
+      }, 1000);
+      buttonFinish.addEventListener('click', (e) => {
+        clearTimeout(timer); // timer 자체를 끄는 코드라고 생각하고 작성했다.
+      });
+      */
+    // 8-4 해설 코드
+    const [startBtn, endBtn] = document.querySelectorAll('button');
+    // querySelectorAll 사용하는 방법 알아두기!
+    const inputEl = document.querySelector('input');
+    const divEl = document.querySelector('div');
+
+    let num = 10;
+    let timerId;
+    function consoleLog() {
+      num = num - 1;
+      divEl.innerText = num;
+      if (num === 0) {
+        window.clearInterval(timerId);
+        console.log(inputEl.value);
+      }
+    }
+    startBtn.addEventListener('click', () => {
+      divEl.innerText = num;
+      timerId = window.setInterval(consoleLog, 1000);
+    });
+
+    // 8-4 제출 코드; 조건은 만족했지만 해설 코드와 다르게 작동한다...
+    // 제출 코드의 경우 input에 입력한 숫자부터 카운트 다운이 시작,
+    // 10초후 input값이 출력되어서 101를 입력하면 91에 input값이 콘솔에 출력된다...
+    /*
+    const inputEl = document.querySelector('input');
+    const buttonStart = document.querySelector('#start-button');
+    const div = document.querySelector('div');
+    buttonStart.addEventListener('click', (e) => {
+      let count = inputEl.value;
+      const timer = setInterval(function () {
+        if (count < 2) {
+          clearInterval(timer);
+        }
+        div.innerText = count -= 1;
+      }, 1000);
+    });
+    buttonStart.addEventListener('click', (e) => {
+      const timer = setTimeout(function () {
+        console.log(inputEl.value);
+      }, 10000);
+    });
+    */
+  </script>
+</html>

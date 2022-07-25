@@ -114,18 +114,15 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault(); // 새로고침 대신
       const newDiv = document.createElement('div');
-      newDiv.className = 'some-div';
+      newDiv.classList.add('some-div');
       newDiv.style.backgroundColor = input.value;
       input.value = '';
       target.appendChild(newDiv);
-      // newDiv.addEventListener('click', (e) => {
-      //   newDiv.parentElement.removeChild(newDiv);
-      //   console.log(e.target, e.currentTarget);
-      // });
     });
-    target.addEventListener('click', (e) => {
-      console.log('target:', e.target, 'currentTarget:', e.currentTarget);
-      e.target.remove();
+    document.body.addEventListener('click', (e) => {
+      if (e.target.classList.contains('some-div')) {
+        e.target.remove();
+      }
     });
   </script>
 </html>

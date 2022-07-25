@@ -529,3 +529,84 @@ html 및 script를 작성해 보세요.
 div를 제거하기 위한 event listener를
 div 갯수만큼 만들지 않고 해결할 방법이 있을지 고민해 보세요.
 ```
+
+### 8-1
+
+```
+button을 click하면 3초(=3000 밀리초) 뒤
+console에 input의 value를 출력하도록 script를 작성해 보세요.
+```
+
+```html
+<html>
+  <body>
+    <input type="number" />
+    <button id="button">Click ME!</button>
+  </body>
+  <script></script>
+</html>
+```
+
+### 8-2
+
+```
+button을 click하면 매 1초(=1000 ms) 마다
+console에 input의 value를 출력하도록 script를 작성해 보세요.
+```
+
+```html
+<html>
+  <body>
+    <input type="number" />
+    <button id="button">Click ME!</button>
+  </body>
+  <script></script>
+</html>
+```
+
+### 8-3
+
+```
+시작 button을 click하면 매 1초(=1000 ms) 마다
+console에 input의 value를 출력하도록 script를 작성해 보세요.
+끝 button을 click하면 더이상 console에 input의 value를 출력
+하지 않도록 작성해 주세요.
+```
+
+```html
+<html>
+  <body>
+    <input type="number" />
+    <button>시작</button>
+    <button>끝</button>
+  </body>
+  <script></script>
+</html>
+```
+
+### 8-4
+
+```
+시작 button을 click하면 10초 뒤에
+console에 input의 value를 출력하도록 script를 작성해 보세요.
+div에 10초부터 0초까지 남은 시간을 표시해 주세요!
+```
+
+```html
+<html>
+  <body>
+    <input type="number" />
+    <button>시작</button>
+    <div></div>
+  </body>
+  <script></script>
+</html>
+```
+
+### 8-5
+
+```
+https://jsonplaceholder.typicode.com/posts/1
+서버로부터 응답을 받아와, title을 화면에 출력해보세요!
+Promise-then, async/await 문법을 모두 사용해보세요!
+```

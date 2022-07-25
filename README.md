@@ -607,6 +607,6 @@ div에 10초부터 0초까지 남은 시간을 표시해 주세요!
 
 ```
 https://jsonplaceholder.typicode.com/posts/1
-서버로부터 응답을 받아와, title을 화면에 출력해보세요!
-Promise-then, async/await 문법을 모두 사용해보세요!
+서버로부터 응답을 받아와, title을 화면에 출력해 보세요!
+Promise-then, async/await 문법을 모두 사용해 보세요!
 ```

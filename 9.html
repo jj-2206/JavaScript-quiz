@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promise-async</title>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+  </body>
+  <script>
+    const [promiseDiv, asyncDiv] = document.querySelectorAll('div');
+
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then((result) => {
+        const a = result.json();
+        console.log('a is ', a); // a is  Promise {<pending>}
+        return a;
+      })
+      .then((json) => {
+        console.log(json.title); // sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+        promiseDiv.innerText = `promise: ${json.title}`;
+      });
+
+    async function getTitle() {
+      const result = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+      console.log(result); // Response {type: 'cors', url: 'https://jsonplaceholder.typicode.com/posts/1', redirected: false, status: 200, ok: true, …}
+      const json = await result.json();
+      console.log(json); // {userId: 1, id: 1, title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', body: 'quia et suscipit\nsuscipit recusandae consequuntur …strum rerum est autem sunt rem eveniet architecto'}
+      console.log(json.title);
+      asyncDiv.innerText = `async: ${json.title}`;
+    }
+    getTitle();
+
+    const cbForPromise = (resolve) => {
+      const someFunction = () => {
+        console.log('hello world!');
+        resolve(); // 주석이 생긴다면... 완료!를 볼 수 없다.
+      };
+      setTimeout(someFunction, 1000);
+    };
+
+    const helloPromise = new Promise(cbForPromise);
+    const afterFunction = () => {
+      // resolve 기다리는 중...
+      console.log('완료!');
+    };
+    helloPromise.then(afterFunction);
+
+    const startAsyncFunction = async function () {
+      const helloPromise = new Promise(cbForPromise);
+      await helloPromise; // resolve 기다리는 중...
+      console.log('완료!');
+    };
+    startAsyncFunction();
+  </script>
+</html>
